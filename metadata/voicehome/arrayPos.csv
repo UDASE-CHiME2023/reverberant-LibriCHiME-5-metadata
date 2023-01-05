@@ -1,0 +1,26 @@
+,home,room,arrayPos,text,x,y,z,azimuth,elevation
+0,home1,room1,arrayPos1,Array centroid,2.705,2.526,1.193,90.000,0.000
+1,home2,room1,arrayPos1,far to the wall,1.820,1.530,0.490,0.000,0.000
+2,home2,room1,arrayPos2,near to the wall,6.870,0.690,1.050,90.000,0.000
+3,home2,room2,arrayPos1,far to the wall,1.970,0.700,0.800,0.000,0.000
+4,home2,room2,arrayPos2,near to the wall,2.080,3.940,0.900,0.000,0.000
+5,home2,room3,arrayPos1,far to the wall,0.320,-2.710,0.440,0.000,0.000
+6,home2,room3,arrayPos2,near to the wall,0.100,-0.660,0.440,-90.000,0.000
+7,home2,room4,arrayPos1,far to the wall,0.450,-2.030,0.850,0.000,0.000
+8,home2,room4,arrayPos2,near to the wall,0.100,-1.330,0.850,-90.000,0.000
+9,home3,room1,arrayPos1,far to the wall,3.460,-1.900,0.500,0.000,0.000
+10,home3,room1,arrayPos2,near to the wall,2.600,-0.100,1.700,0.000,0.000
+11,home3,room2,arrayPos1,far to the wall,1.050,1.690,0.800,0.000,0.000
+12,home3,room2,arrayPos2,near to the wall,3.050,0.100,0.970,-180.000,0.000
+13,home3,room3,arrayPos1,far to the wall,0.330,2.020,0.840,0.000,0.000
+14,home3,room3,arrayPos2,near to the wall,0.100,3.840,1.170,-90.000,0.000
+15,home3,room4,arrayPos1,far to the wall,0.360,0.270,1.440,0.000,0.000
+16,home3,room4,arrayPos2,near to the wall,0.130,0.930,1.250,-90.000,0.000
+17,home4,room1,arrayPos1,far to the wall,0.750,-1.960,0.450,0.000,0.000
+18,home4,room1,arrayPos2,near to the wall,3.500,-5.080,1.830,90.000,0.000
+19,home4,room2,arrayPos1,far to the wall,0.400,0.840,0.810,0.000,0.000
+20,home4,room2,arrayPos2,near to the wall,4.250,1.000,0.970,90.000,0.000
+21,home4,room3,arrayPos1,far to the wall,0.290,1.270,1.050,0.000,0.000
+22,home4,room3,arrayPos2,near to the wall,3.660,2.760,1.250,0.000,0.000
+23,home4,room4,arrayPos1,far to the wall,1.110,0.450,0.920,0.000,0.000
+24,home4,room4,arrayPos2,near to the wall,0.130,0.790,0.850,-90.000,0.000
