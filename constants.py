@@ -14,7 +14,7 @@ SR_AUDIO = 16000 # sampling rate for audio files
 MIN_DURATION_SUBSEG = 1.5 # min duration of speakers' activity subsegments in seconds
 
 SNR_MEAN_MIX = 10 # per-mixture SNR mean
-SNR_STD_MIX = 7 # per-mixture SNR standard deviation # 5
+SNR_STD_MIX = 6.7082 # per-mixture SNR standard deviation # 5
 SNR_STD_SPK = 2 # per-speaker SNR standard deviation
 
 MAX_AMP = 0.9 # max amplitude in case of clipping

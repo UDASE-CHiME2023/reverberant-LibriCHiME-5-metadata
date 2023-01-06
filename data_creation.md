@@ -52,7 +52,7 @@ We add the reverberation metadata as follows:
 
 - For each mixture in the dataset:
     - Sample a home, a room, and an array position/geometry.
-    - Sample $x$ speaker positions without replacement, where $x$ is equal to the number of speakers in the mixture.
+    - Sample $n_{spk}$ speaker positions without replacement, where $n_{spk}$ is equal to the number of speakers in the mixture.
     - Sample a channel.
     - For each speaker, add to the metadata the selected single-channel RIR.
 
@@ -74,7 +74,7 @@ More precisely, the mixtures are created as follows.
         - Compute the gain for scaling the reverberant speech signal to reach the above-sampled SNR. 
         - Scale the reverberant speech signal.
     - Sum the scaled reverberant speech signals and the noise signal.
-    - In case of clipping, normalize speech, noise and mixture by the same factor to avoid clipping.
+    - In case of clipping, normalize speech, noise and mixture by the same factor to avoid clipping and preserve SNR.
 
 
 ## TODO
