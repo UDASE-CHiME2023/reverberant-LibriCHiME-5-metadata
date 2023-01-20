@@ -4,18 +4,21 @@
 """
 """
 
+from constants import (SEED, PROBA_SPK, SR_DIARIZATION, SR_AUDIO, 
+                    MIN_DURATION_SUBSEG, SNR_MEAN_MIX, SNR_STD_MIX, 
+                    SNR_STD_SPK)
+
 import json
 import pandas as pd
 import numpy as np
+np.random.seed(SEED)
 import os
 import random
+random.seed(SEED)
 import soundfile as sf
 from utils import get_segments_start_end
 import copy
 from tqdm import tqdm
-from constants import (SEED, PROBA_SPK, SR_DIARIZATION, SR_AUDIO, 
-                    MIN_DURATION_SUBSEG, SNR_MEAN_MIX, SNR_STD_MIX, 
-                    SNR_STD_SPK)
 
 from paths import (unlabeled_data_audio_path, unlabeled_data_json_path, 
                    voicehome_path, labeled_data_json_path)
@@ -507,7 +510,7 @@ def create_dry_mixtures(df_noise, df_seg_all, df_librispeech, subset):
                 if not success:
                     raise Exception('Segment selection failed.')
             
-            mix_infos['diarization_id'] = seg['filename'] + '_' + seg['id']
+            # mix_infos['diarization_id'] = seg['filename'] + '_' + seg['id']
             
             spks_activity, n_spk_new = get_speaker_activity(seg, seg_len)
             
@@ -715,9 +718,6 @@ def main():
 
 
     for subset in ['dev', 'eval']:
-    
-        np.random.seed(SEED)
-        random.seed(SEED)
         
         # paths
         noise_audio_path = os.path.join(unlabeled_data_audio_path, subset, '0')

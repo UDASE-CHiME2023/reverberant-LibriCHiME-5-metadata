@@ -209,13 +209,13 @@ def main():
                 os.makedirs(os.path.join(output_path, str(mix_max_n_spk)))
             
             output_mix_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_mix.wav')
-            sf.write(output_mix_file, mix_sig, SR_AUDIO)
+            sf.write(output_mix_file, mix_sig, SR_AUDIO, 'PCM_16')
             
             output_speech_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_speech.wav')
-            sf.write(output_speech_file, speech_mix_sig, SR_AUDIO)
+            sf.write(output_speech_file, speech_mix_sig, SR_AUDIO, 'PCM_16')
             
             output_noise_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_noise.wav')
-            sf.write(output_noise_file, noise_sig, SR_AUDIO)
+            sf.write(output_noise_file, noise_sig, SR_AUDIO, 'PCM_16')
     
 if __name__ == "__main__":
     main()
