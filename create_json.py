@@ -20,8 +20,8 @@ from utils import get_segments_start_end
 import copy
 from tqdm import tqdm
 
-from paths import (unlabeled_data_audio_path, unlabeled_data_json_path, 
-                   voicehome_path, labeled_data_json_path)
+from paths import (udase_chime_5_audio_path, udase_chime_5_json_path, 
+                   voicehome_path, reverberant_librichime_5_json_path)
 
 
 VERBOSE = True
@@ -570,7 +570,7 @@ def create_dry_mixtures(df_noise, df_seg_all, df_librispeech, subset):
     return dataset
 
 def create_dry_dataset(librispeech_csv_file, noise_audio_path, 
-                       unlabeled_data_json_path, subset, sessions_speakers, 
+                       udase_chime_5_json_path, subset, sessions_speakers, 
                        n_subsets=2):
     """
     each CHiME noise file will be used n_subsets times
@@ -580,7 +580,7 @@ def create_dry_dataset(librispeech_csv_file, noise_audio_path,
     
     noise_file_list = get_file_list(noise_audio_path, endswith='.wav')
     df_noise_orig = create_noise_df(noise_file_list, subset)
-    df_seg_all_orig = create_seg_df(unlabeled_data_json_path, subset, sessions_speakers)
+    df_seg_all_orig = create_seg_df(udase_chime_5_json_path, subset, sessions_speakers)
     
     for n in range(n_subsets):
     
@@ -720,8 +720,8 @@ def main():
     for subset in ['dev', 'eval']:
         
         # paths
-        noise_audio_path = os.path.join(unlabeled_data_audio_path, subset, '0')
-        output_path = labeled_data_json_path
+        noise_audio_path = os.path.join(udase_chime_5_audio_path, subset, '0')
+        output_path = reverberant_librichime_5_json_path
         if not os.path.isdir(output_path):
             os.makedirs(output_path)
         
@@ -747,7 +747,7 @@ def main():
         # create metadata for the "dry" mixtures
         print('initializing metadata')
         dataset = create_dry_dataset(librispeech_csv_file, noise_audio_path, 
-                                     unlabeled_data_json_path, subset, sessions_speakers,
+                                     udase_chime_5_json_path, subset, sessions_speakers,
                                      n_subsets=2)
         
         # add reverberation information
