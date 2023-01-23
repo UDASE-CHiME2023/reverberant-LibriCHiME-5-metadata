@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 23 10:21:19 2023
-
-@author: sleglaive
+This script computes summary information about the reverberant LibriCHiME-5 
+dataset
 """
 
 from paths import reverberant_librichime_5_audio_path
