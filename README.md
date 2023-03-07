@@ -1,6 +1,6 @@
-# LibriCHiME
+# Reveberant LibriCHiME-5
 
-This repository contains instructions for creating the LibriCHiME data (metadata and audio files): synthetic labeled data close to the target CHiME domain. The LibriCHiME data are used for dev and eval only.
+This repository contains instructions for creating the reverberant LibriCHiME-5 dataset (metadata and audio files) for the UDASE task of the CHiME-7 challenge. The reverberant LibriCHiME-5 dataset is used for dev and eval only.
 
 **This repository will not be shared with participants**, we will only share the code to create the audio files from the metadata stored in json files that still need to be cleaned.
 
@@ -30,76 +30,65 @@ You must first:
 ## Installation
 
 ```
-# clone data repository
-git clone https://github.com/UDASE-CHiME2023/LibriCHiME.git
-cd LibriCHiME
+# clone repository
+git clone git@github.com:UDASE-CHiME2023/reverberant-LibriCHiME-5-internal.git
+cd reverberant-LibriCHiME-5-internal
 
-# create CHiME conda environment (if not already existing)
-conda env create -f environment.yml
+# activate CHiME environment
 conda activate CHiME
 ```
 
 ## Dataset creation
 
-Set the paths in `paths.py` and run `python create_audio_from_json.py`.
+- Set the paths in `paths.py`:
+    - `udase_chime_5_audio_path` is the path to the audio segments that you should have previously extracted from the CHiME-5 data (see preparation section above).
+    - `librispeech_path` is the path to the LibriSpeech dataset that you should have previously downloaded (see preparation section above).
+    - `voicehome_path` is the path to the VoiceHome dataset that you should have previously downloaded (see preparation section above).
+    - `reverberant_librichime_5_json_path` is the path to the metadata of the reverberant LibriCHiME-5 dataset, you do not need to change it.
+    - `reverberant_librichime_5_audio_path` is the path where you want to store the reverberant LibriCHiME-5 dataset.
+- Run `python create_audio_from_json.py`.
 
-LibriCHiME is split in `dev` and `eval` sets. For each set we have three subsets dependending on the number of overlapping speakers (1, 2 or 3).
+The dataset is split in `dev` and `eval` sets. For each set we have three subsets dependending on the maximum number of simultaneously-active speakers (1, 2 or 3)
 
-At the path defined by the variable `labeled_data_audio_path` in `path.py`, you should obtain: 
+At the path defined by the variable `reverberant_librichime_5_audio_path` in `path.py`, you should obtain: 
 
 ```
 ├── dev
-│   ├── 1 (3552 files)
-│   │   ├── S02_P05_11b_mix.wav
-│   │   ├── S02_P05_11b_noise.wav
-│   │   ├── S02_P05_11b_speech.wav
-│   │   ├── ...
-│   ├── 2 (1683 files)
-│   │   ├── S02_P05_10a_mix.wav
-│   │   ├── S02_P05_10a_noise.wav
-│   │   ├── S02_P05_10a_speech.wav
-│   │   ├── ...
-│   └── 3 (234 files)
-│       ├── S02_P05_5b_mix.wav
-│       ├── S02_P05_5b_noise.wav
-│       ├── S02_P05_5b_speech.wav
-│       ├── ...
+│   ├── 1 (3 561 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
+│   ├── 2 (1 695 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
+│   ├── 3 (195 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
 ├── eval
-│   ├── 1 (4386 files)
-│   │   ├── S01_P01_0a_mix.wav
-│   │   ├── S01_P01_0a_noise.wav
-│   │   ├── S01_P01_0a_speech.wav
-│   │   ├── ...
-│   ├── 2 (1314 files)
-│   │   ├── S01_P01_100a_mix.wav
-│   │   ├── S01_P01_100a_noise.wav
-│   │   ├── S01_P01_100a_speech.wav
-│   │   ├── ...
-│   └── 3 (153 files)
-│       ├── S01_P01_117b_mix.wav
-│       ├── S01_P01_117b_noise.wav
-│       ├── S01_P01_117b_speech.wav
-│       ├── ...
-
-
-8 directories, 11322 files
+│   ├── 1 (4 182 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
+│   ├── 2 (1 482 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
+│   ├── 3 (192 files)
+│   │   ├── [...]_mix.wav
+│   │   ├── [...]_noise.wav
+│   │   ├── [...]_speech.wav
 ```
 
 For each mixture in the dataset:
-- `..._mix.wav` is the speech+noise mixture;
-- `..._speech.wav` is the reference speech signal;
-- `..._noise.wav` is the reference noise signal.
+- `[...]_mix.wav` is the speech+noise mixture;
+- `[...]_speech.wav` is the reference speech signal;
+- `[...]_noise.wav` is the reference noise signal.
 
-Other files in this repository are:
+Summing the reference speech and noise signals gives the mixture signal.
 
-- `constants.py`: file that contains constants used to create LibriCHiME.
-- `paths.py`: file that contains paths to the source datasets used to create LibriCHiME.
-- `create_json.py`: script to create the LibriCHiME json metadata files.
-- `create_chime_metadata.py`
-- `create_librispeech_metadata.py`
-- `create_voicehome_metadata.py`
-- `utils.py`
-
+As the original CHiME-5 recordings, these audio signals are not normalized.
 
 ## Dataset description
 

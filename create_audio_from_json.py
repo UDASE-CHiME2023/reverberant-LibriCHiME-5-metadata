@@ -8,8 +8,8 @@ import numpy as np
 import os
 import soundfile as sf
 from constants import SR_AUDIO, MAX_AMP
-from paths import (unlabeled_data_audio_path, librispeech_path, 
-                   voicehome_path, labeled_data_json_path, labeled_data_audio_path)
+from paths import (udase_chime_5_audio_path, librispeech_path, 
+                   voicehome_path, reverberant_librichime_5_json_path, reverberant_librichime_5_audio_path)
 from tqdm import tqdm
 
 import scipy as sp
@@ -113,10 +113,10 @@ def main():
     for subset in ['dev', 'eval']:
     
         # paths
-        dataset_json_path = output_path = os.path.join(labeled_data_json_path, 
+        dataset_json_path = output_path = os.path.join(reverberant_librichime_5_json_path, 
                                                        subset + '.json')
         
-        output_path = os.path.join(labeled_data_audio_path, subset)
+        output_path = os.path.join(reverberant_librichime_5_audio_path, subset)
         
         # create output dir if necessary
         if not os.path.isdir(output_path):
@@ -137,7 +137,7 @@ def main():
             
             # read noise file
             noise_file = mix_infos['noise']['filename']
-            noise_path = os.path.join(unlabeled_data_audio_path, subset, '0', noise_file+ '.wav')
+            noise_path = os.path.join(udase_chime_5_audio_path, subset, '0', noise_file+ '.wav')
             noise_sig, sr = sf.read(noise_path)
             if len(noise_sig.shape) == 2:
                 noise_sig = noise_sig[:,1]
@@ -209,13 +209,13 @@ def main():
                 os.makedirs(os.path.join(output_path, str(mix_max_n_spk)))
             
             output_mix_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_mix.wav')
-            sf.write(output_mix_file, mix_sig, SR_AUDIO)
+            sf.write(output_mix_file, mix_sig, SR_AUDIO, 'PCM_16')
             
             output_speech_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_speech.wav')
-            sf.write(output_speech_file, speech_mix_sig, SR_AUDIO)
+            sf.write(output_speech_file, speech_mix_sig, SR_AUDIO, 'PCM_16')
             
             output_noise_file = os.path.join(output_path, str(mix_max_n_spk), mix_name + '_noise.wav')
-            sf.write(output_noise_file, noise_sig, SR_AUDIO)
+            sf.write(output_noise_file, noise_sig, SR_AUDIO, 'PCM_16')
     
 if __name__ == "__main__":
     main()
