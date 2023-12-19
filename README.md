@@ -2,13 +2,13 @@
 
 This repository contains instructions for creating the reverberant LibriCHiME-5 dataset (metadata and audio files) for the UDASE task of the CHiME-7 challenge. The reverberant LibriCHiME-5 dataset is used for dev and eval only.
 
-**This repository will not be shared with participants**, we will only share the code to create the audio files from the metadata stored in json files that still need to be cleaned.
+~~**This repository will not be shared with participants**, we will only share the code to create the audio files from the metadata stored in json files.~~ Now that the challenge is over, we also provide the code to create the metadata for the reverberant LibriCHiME-5 dataset.
 
 ## Preparation
 
 You must first:
 
- - Follow the instruction of the [unlabeled_data](https://github.com/UDASE-CHiME2023/unlabeled_data) repository to extract audio segments from the original unlabeled CHiME-5 data. 
+ - Follow the instruction of the [CHiME-5](https://github.com/UDASE-CHiME2023/CHiME-5) repository to extract audio segments from the original unlabeled CHiME-5 data. 
     
  - Download the LibriSpeech [dev-clean](https://www.openslr.org/resources/12/dev-clean.tar.gz) and [test-clean](https://www.openslr.org/resources/12/test-clean.tar.gz) data. Put the data in a folder with the following structure:
 

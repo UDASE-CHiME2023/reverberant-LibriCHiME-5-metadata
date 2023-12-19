@@ -58,7 +58,7 @@ We add the reverberation metadata as follows:
 
 ## Create mixtures
 
-We estimated with [Brouhaha](https://github.com/marianne-m/brouhaha-vad) a mean SNR of 10 dB with standard deviation of 7 dB using single-speaker segments from the binaural microphone of non-speaking participants in the original CHiME-5 data. Speech+noise mixtures are created such that per-speaker SNR is Gaussian with the above-mentioned mean and standard deviation. This is done by first sampling a global (per-mixture) SNR $x \sim \mathcal{N}(\mu, \sigma_1^2)$ and then sampling a local per-speaker SNR $y \sim \mathcal{N}(x, \sigma_2^2)$ with $\mu = 10$, $\sigma_2 = 2$, and $\sqrt{\sigma_1^2 + \sigma_2^2} = 7 \Leftrightarrow \sigma_1 = 6.7082$. The value of $\sigma_2$ is chosen such that the loudness difference between multiple speakers remains reasonable, to simulate a conversation. 
+Speech+noise mixtures are created such that per-speaker SNR is Gaussian with a mean and a standard deviation chosen to match the SNR distribution of the CHiME-5 data as estimated by [Brouhaha](https://github.com/marianne-m/brouhaha-vad) (see [this document](./Reverberant%20LibriCHiME-5%20-%20input%20SNR%20study.pdf) for more details). This is done by first sampling a global (per-mixture) SNR $x \sim \mathcal{N}(\mu, \sigma_1^2)$ and then sampling a local per-speaker SNR $y \sim \mathcal{N}(x, \sigma_2^2)$ with $\mu = 5$, $\sigma_2 = 2$, and $\sqrt{\sigma_1^2 + \sigma_2^2} = 7 \Leftrightarrow \sigma_1 = 6.7082$. The value of $\sigma_2$ is chosen such that the loudness difference between multiple speakers remains reasonable, to simulate a conversation. 
 
 More precisely, the mixtures are created as follows.
 
@@ -77,16 +77,5 @@ More precisely, the mixtures are created as follows.
     - In case of clipping, normalize speech, noise and mixture by the same factor to avoid clipping and preserve SNR.
 
 
-## TODO
 
-- Extract summary statistics from the dataset
-- Listen to the audio files and compare with the unlabeled CHiME data
-- Decide if we want to lower a bit the SNR
-
-If time allows:
-
-- Compute `Pyloudnorm` loudness on noise files and discard noise files with `-inf` loudness
-- Redo the mixing using `Pyloudnorm`
-- Clip RIR to remove silence at beginning, but the maximum time of arrival in VoiceHome RIRs is 17 ms and the precision of the diarization labels is 10 ms, so I don't think it's worth the effort.
-- Check that SNR computed from isolated noise segments followed by speech+noise is similar to Brouhaha's estimate.
 
