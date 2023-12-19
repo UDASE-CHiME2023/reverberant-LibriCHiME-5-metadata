@@ -92,4 +92,4 @@ As the original CHiME-5 recordings, these audio signals are not normalized.
 
 ## Dataset description
 
-For more information, please refer to [this file](data_creation.md) describing how the dataset is generated. It also includes a TODO list.
+For more information, please refer to [this file](data_creation.md) describing how the dataset is generated.
