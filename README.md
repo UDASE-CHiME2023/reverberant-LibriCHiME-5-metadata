@@ -2,7 +2,7 @@
 
 This repository contains instructions for creating the reverberant LibriCHiME-5 dataset (metadata and audio files) for the UDASE task of the CHiME-7 challenge. The reverberant LibriCHiME-5 dataset is used for dev and eval only.
 
-~~**This repository will not be shared with participants**, we will only share the code to create the audio files from the metadata stored in json files.~~ Now that the challenge is over, we also provide the code to create the metadata for the reverberant LibriCHiME-5 dataset.
+This repository is made publicly available now that the CHiME-7 challenge is over.
 
 ## Preparation
 
