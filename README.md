@@ -2,7 +2,9 @@
 
 This repository contains instructions for creating the reverberant LibriCHiME-5 dataset (metadata and audio files) for the UDASE task of the CHiME-7 challenge. The reverberant LibriCHiME-5 dataset is used for dev and eval only.
 
-This repository is made publicly available now that the CHiME-7 challenge is over.
+The process to create the reverberant LibriCHiME-5 dataset is detailed in [this file](data_creation.md). The code implements this process.
+
+This repository was made publicly available after the end of the CHiME-7 challenge.
 
 ## Preparation
 
@@ -89,7 +91,3 @@ For each mixture in the dataset:
 Summing the reference speech and noise signals gives the mixture signal.
 
 As the original CHiME-5 recordings, these audio signals are not normalized.
-
-## Dataset description
-
-For more information, please refer to [this file](data_creation.md) describing how the dataset is generated.
