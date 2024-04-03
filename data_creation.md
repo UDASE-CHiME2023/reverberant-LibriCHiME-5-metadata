@@ -1,6 +1,6 @@
-# LibriCHiME dataset
+# Reverberant LibriCHiME-5 dataset
 
-This document describes how the labeled data close to the target CHiME domain are generated. The LibriCHiME data are used for dev and eval only.
+This document describes how the labeled data close to the target CHiME domain are generated. The reverberant LibriCHiME-5 data are used for dev and eval only.
 
 ## Create metadata for the mixtures without reverberation
 
