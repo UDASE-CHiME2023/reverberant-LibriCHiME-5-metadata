@@ -6,6 +6,9 @@ The process to create the reverberant LibriCHiME-5 dataset is detailed in [this 
 
 This repository was made publicly available after the end of the CHiME-7 challenge.
 
+If you use this code in your research, please cite:
+> Leglaive, S., Borne, L., Tzinis, E., Sadeghi, M., Fraticelli, M., Wisdom, S., Pariente, M., Pressnitzer, D., & Hershey, J. R. (2023). The CHiME-7 UDASE task: Unsupervised domain adaptation for conversational speech enhancement. In 7th International Workshop on Speech Processing in Everyday Environments (CHiME).
+
 ## Preparation
 
 You must first:
